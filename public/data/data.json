@@ -1,0 +1,99 @@
+{
+    "ads": [
+        {
+            "id": "classic",
+            "name": "Classic Ad",
+            "price": 269.99
+        },
+        {
+            "id": "standout",
+            "name": "Standout Ad",
+            "price": 322.99
+        },
+        {
+            "id": "premium",
+            "name": "Premium Ad",
+            "price": 394.99
+        }
+    ],
+
+    "rules": [
+        {
+            "id": 1,
+            "name": "pay_less_quantities",
+            "description": "Buy ${p1}, you pay ${p2}."
+        },
+        {
+            "id": 2,
+            "name": "pay_less_price",
+            "description": "Drop price to ${p1} per ad."
+        },
+        {
+            "id": 3,
+            "name": "pay_less_price_on_buy_more",
+            "description": "Buy ${p1} or more, drop price to ${p2} per ad."
+        }
+    ],
+
+    "customers": [
+        {
+            "id": "default",
+            "name": "Default",
+            "discounts": []
+        },
+        {
+            "id": "unilever",
+            "name": "UNILEVER",
+            "discounts": [
+                {
+                    "ad": "classic",
+                    "rule": 1,
+                    "param": [3, 2]
+                }
+            ]
+        },
+        {
+            "id": "apple",
+            "name": "APPLE",
+            "discounts": [
+                {
+                    "ad": "standout",
+                    "rule": 2,
+                    "param": [299.99]
+                }
+            ]
+        },
+        {
+            "id": "nike",
+            "name": "NIKE",
+            "discounts": [
+                {
+                    "ad": "premium",
+                    "rule": 3,
+                    "param": [4, 379.99]
+                }
+            ]
+        },
+        {
+            "id": "ford",
+            "name": "FORD",
+            "discounts": [
+                {
+                    "ad": "classic",
+                    "rule": 1,
+                    "param": [5, 4]
+                },
+                {
+                    "ad": "standout",
+                    "rule": 2,
+                    "param": [309.99]
+                },
+                {
+                    "ad": "premium",
+                    "rule": 3,
+                    "param": [3, 389.99]
+                }
+            ]
+        }
+    ]
+}
