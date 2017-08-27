@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 
 class Customer extends Component {
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.checked !== nextProps.checked;
+  }
+
   render() {
     return (
-      <li>
+      <div>
         <label>
           <input
             readOnly 
@@ -14,7 +19,7 @@ class Customer extends Component {
             name="customers" /> 
           {this.props.customer.name}
         </label>
-      </li>
+      </div>
     );    
   }
 }

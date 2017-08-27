@@ -17,24 +17,6 @@
         }
     ],
 
-    "rules": [
-        {
-            "id": 1,
-            "name": "pay_less_quantities",
-            "description": "Buy ${p1}, you pay ${p2}."
-        },
-        {
-            "id": 2,
-            "name": "pay_less_price",
-            "description": "Drop price to ${p1} per ad."
-        },
-        {
-            "id": 3,
-            "name": "pay_less_price_on_buy_more",
-            "description": "Buy ${p1} or more, drop price to ${p2} per ad."
-        }
-    ],
-
     "customers": [
         {
             "id": "default",
@@ -47,8 +29,9 @@
             "discounts": [
                 {
                     "ad": "classic",
-                    "rule": 1,
-                    "param": [3, 2]
+                    "rule": "pay_less_quantities",
+                    "param": [3, 2],
+                    "description": "Classic Ad: Buy 3, you pay for 2."
                 }
             ]
         },
@@ -58,8 +41,9 @@
             "discounts": [
                 {
                     "ad": "standout",
-                    "rule": 2,
-                    "param": [299.99]
+                    "rule": "pay_less_price",
+                    "param": [299.99],
+                    "description": "Standout Ad: Drop price to $299.99 per ad."
                 }
             ]
         },
@@ -69,8 +53,9 @@
             "discounts": [
                 {
                     "ad": "premium",
-                    "rule": 3,
-                    "param": [4, 379.99]
+                    "rule": "pay_less_price_when_buy_more",
+                    "param": [4, 379.99],
+                    "description": "Premium Ad: Buy 4 or more, drop price to $379.99 per ad."
                 }
             ]
         },
@@ -80,18 +65,21 @@
             "discounts": [
                 {
                     "ad": "classic",
-                    "rule": 1,
-                    "param": [5, 4]
+                    "rule": "pay_less_quantities",
+                    "param": [5, 4],
+                    "description": "Classic Ad: Buy 5, you pay for 4."
                 },
                 {
                     "ad": "standout",
-                    "rule": 2,
-                    "param": [309.99]
+                    "rule": "pay_less_price",
+                    "param": [309.99],
+                    "description": "Standout Ad: Drop price to $309.99 per ad."
                 },
                 {
                     "ad": "premium",
-                    "rule": 3,
-                    "param": [3, 389.99]
+                    "rule": "pay_less_price_when_buy_more",
+                    "param": [3, 389.99],
+                    "description": "Premium Ad: Buy 3 or more, drop price to $389.99 per ad."
                 }
             ]
         }
