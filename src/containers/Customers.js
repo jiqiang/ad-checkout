@@ -23,9 +23,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onClickCustomer: id => (
+  onClickCustomer: id => {
     dispatch(changeCustomer(id))
-  )
+  }
 })
 
 export default connect(

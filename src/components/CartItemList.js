@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AdItemList = ({ children }) => (
+const CartItemList = ({ children }) => (
   <div>
     {children}
   </div>
 )
 
-AdItemList.propTypes = {
+CartItemList.propTypes = {
   children: PropTypes.node
 }
 
-export default AdItemList
+export default CartItemList

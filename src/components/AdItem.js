@@ -1,13 +1,14 @@
 import React from 'react'
 
-const AdItem = ({ name, qty, onAdd, onRemove }) => {
+const AdItem = ({ name, qty, price, onAdd, onRemove }) => {
   
   return (
     <div>
       <span>{name}</span>
-      <button onClick={onRemove}>-</button>
+      <button disabled={qty === 0} onClick={onRemove}>-</button>
       {qty}
       <button onClick={onAdd}>+</button>
+      <span>${price}</span>
     </div>
   )
 }  

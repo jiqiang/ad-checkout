@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { updateCart } from '../actions'
+import { updateAds, updateCart } from '../actions'
 import AdItemList from '../components/AdItemList'
 import AdItem from '../components/AdItem'
 
@@ -11,6 +11,8 @@ const Ads = ({ ads, onUpdateAdItemQty }) => (
       <AdItem 
         key={ad.id} 
         name={ad.name}
+        qty={ad.qty}
+        price={ad.price}
         onAdd={() => onUpdateAdItemQty(ad.id, 1)}
         onRemove={() => onUpdateAdItemQty(ad.id, -1)} />
     )}
@@ -22,12 +24,13 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  onUpdateAdItemQty: (id, qty) => (
+  onUpdateAdItemQty: (id, qty) => {
+    dispatch(updateAds(id, qty))
     dispatch(updateCart(id, qty))
-  )
+  }
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Customers)
+)(Ads)

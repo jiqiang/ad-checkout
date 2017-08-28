@@ -1,12 +1,20 @@
+import { loadData } from '../utils/api'
+
 export const changeCustomer = (selectedCustomer) => ({
   type: 'CHANGE_CUSTOMER',
   selectedCustomer
 })
 
-export const updateCart = (item) => ({
+export const updateCart = (id, qty) => ({
   type: 'UPDATE_CART',
-  adId: item.adId,
-  qty: item.qty
+  id: id,
+  qty: qty
+})
+
+export const updateAds = (id, qty) => ({
+  type: 'UPDATE_ADS',
+  id: id,
+  qty: qty
 })
 
 export const receiveCustomers = (customers) => ({
@@ -19,20 +27,27 @@ export const receiveAds = (ads) => ({
   ads
 })
 
+export const receiveDiscounts = (discounts) => ({
+  type: 'RECEIVE_DISCOUNTS',
+  discounts
+})
+
+export const calculateTotal = () => ({
+  type: 'CALCULATE_TOTAL'
+})
+
 export const fetchData = () => {
   return (dispatch) => {
-    fetch('/data/data.json')
-      .then(response => response.json())
-      .then(data => {
-        
-        dispatch(receiveCustomers(data.customers))
-        dispatch(receiveAds(data.ads.map(ad => 
-          Object.assign(
-            {}, 
-            ad, 
-            {qty: 0}
-          )
-        )))
-      })
+    loadData().then(data => {
+      dispatch(receiveCustomers(data.customers))
+      dispatch(receiveAds(data.ads.map(ad => 
+        Object.assign(
+          {}, 
+          ad, 
+          {qty: 0}
+        )
+      )))
+      dispatch(receiveDiscounts(data.discounts))
+    })
   }
 }
