@@ -1,87 +1,101 @@
 {
     "ads": [
-        {
-            "id": "classic",
-            "name": "Classic Ad",
-            "price": 269.99
-        },
-        {
-            "id": "standout",
-            "name": "Standout Ad",
-            "price": 322.99
-        },
-        {
-            "id": "premium",
-            "name": "Premium Ad",
-            "price": 394.99
-        }
+      {
+        "id": "classic",
+        "name": "Classic Ad",
+        "price": 269.99
+      },
+      {
+        "id": "standout",
+        "name": "Standout Ad",
+        "price": 322.99
+      },
+      {
+        "id": "premium",
+        "name": "Premium Ad",
+        "price": 394.99
+      }
     ],
-
+    "discounts": [
+      {
+        "customer": "unilever",
+        "ad": "classic",
+        "rule": "pay_less_quantities",
+        "params": [
+          3,
+          2
+        ],
+        "description": "Classic Ad: Buy 3, you pay for 2."
+      },
+      {
+        "customer": "apple",
+        "ad": "standout",
+        "rule": "pay_less_price",
+        "params": [
+          299.99
+        ],
+        "description": "Standout Ad: Drop price to $299.99 per ad."
+      },
+      {
+        "customer": "nike",
+        "ad": "premium",
+        "rule": "pay_less_price_when_buy_more",
+        "params": [
+          4,
+          379.99
+        ],
+        "description": "Premium Ad: Buy 4 or more, drop price to $379.99 per ad."
+      },
+      {
+        "customer": "ford",
+        "ad": "classic",
+        "rule": "pay_less_quantities",
+        "params": [
+          5,
+          4
+        ],
+        "description": "Classic Ad: Buy 5, you pay for 4."
+      },
+      {
+        "customer": "ford",
+        "ad": "standout",
+        "rule": "pay_less_price",
+        "params": [
+          309.99
+        ],
+        "description": "Standout Ad: Drop price to $309.99 per ad."
+      },
+      {
+        "customer": "ford",
+        "ad": "premium",
+        "rule": "pay_less_price_when_buy_more",
+        "params": [
+          3,
+          389.99
+        ],
+        "description": "Premium Ad: Buy 3 or more, drop price to $389.99 per ad."
+      }
+    ],
     "customers": [
-        {
-            "id": "default",
-            "name": "Default",
-            "discounts": []
-        },
-        {
-            "id": "unilever",
-            "name": "UNILEVER",
-            "discounts": [
-                {
-                    "ad": "classic",
-                    "rule": "pay_less_quantities",
-                    "param": [3, 2],
-                    "description": "Classic Ad: Buy 3, you pay for 2."
-                }
-            ]
-        },
-        {
-            "id": "apple",
-            "name": "APPLE",
-            "discounts": [
-                {
-                    "ad": "standout",
-                    "rule": "pay_less_price",
-                    "param": [299.99],
-                    "description": "Standout Ad: Drop price to $299.99 per ad."
-                }
-            ]
-        },
-        {
-            "id": "nike",
-            "name": "NIKE",
-            "discounts": [
-                {
-                    "ad": "premium",
-                    "rule": "pay_less_price_when_buy_more",
-                    "param": [4, 379.99],
-                    "description": "Premium Ad: Buy 4 or more, drop price to $379.99 per ad."
-                }
-            ]
-        },
-        {
-            "id": "ford",
-            "name": "FORD",
-            "discounts": [
-                {
-                    "ad": "classic",
-                    "rule": "pay_less_quantities",
-                    "param": [5, 4],
-                    "description": "Classic Ad: Buy 5, you pay for 4."
-                },
-                {
-                    "ad": "standout",
-                    "rule": "pay_less_price",
-                    "param": [309.99],
-                    "description": "Standout Ad: Drop price to $309.99 per ad."
-                },
-                {
-                    "ad": "premium",
-                    "rule": "pay_less_price_when_buy_more",
-                    "param": [3, 389.99],
-                    "description": "Premium Ad: Buy 3 or more, drop price to $389.99 per ad."
-                }
-            ]
-        }
+      {
+        "id": "default",
+        "name": "DEFAULT"
+      },
+      {
+        "id": "unilever",
+        "name": "UNILEVER"
+      },
+      {
+        "id": "apple",
+        "name": "APPLE"
+      },
+      {
+        "id": "nike",
+        "name": "NIKE"
+      },
+      {
+        "id": "ford",
+        "name": "FORD"
+      }
     ]
-}
+  }
