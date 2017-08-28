@@ -22,7 +22,7 @@ const Cart = ({ cart, ads, selectedCustomer, discounts }) => {
   let discountInfo = (<li>N/A</li>)
   if (dcs.length > 0) {
     discountInfo = dcs.map(dc => {
-      let key = dc.customer + '-' + dc.ad
+      const key = dc.customer + '-' + dc.ad
       return (<li key={key}>{dc.description}</li>)
     })
   }
