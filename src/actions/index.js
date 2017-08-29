@@ -1,5 +1,6 @@
 import { loadData } from '../utils/api'
 
+// all action creators are self-explained
 export const changeCustomer = (selectedCustomer) => ({
   type: 'CHANGE_CUSTOMER',
   selectedCustomer

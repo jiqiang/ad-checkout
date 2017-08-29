@@ -5,6 +5,7 @@ export const cart = (state = [], action) => {
     case 'UPDATE_CART':
       let idx = state.map(ad => ad.id).indexOf(action.id)
 
+      // create new cart item if it doesn't exist
       if (idx < 0) {
         return [
           ...state,
@@ -21,6 +22,7 @@ export const cart = (state = [], action) => {
         return [...state]
       }
 
+      // update existing cart item qty
       return [
         ...state.slice(0, idx),
         Object.assign(

@@ -1,3 +1,7 @@
+// Independent discount class which contains 
+// static functions calculating discounts. You can add 
+// special discount function here
+
 export default class Discount {
   
   static pay_less_quantities(ad_id, qty, price, triggerQty, discountedQty) {
