@@ -19,11 +19,11 @@ const Ads = ({ ads, onUpdateAdItemQty }) => (
   </AdItemList>
 )
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   ads: state.ads
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onUpdateAdItemQty: (id, qty) => {
     dispatch(updateAds(id, qty))
     dispatch(updateCart(id, qty))

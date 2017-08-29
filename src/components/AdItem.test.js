@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import AdItem from './AdItem'
+import sinon from 'sinon'
 
 describe('test AdItem', () => {
   it('AdItem should render properly', () =>{

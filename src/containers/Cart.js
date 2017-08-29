@@ -29,7 +29,7 @@ const Cart = ({ cart, ads, selectedCustomer, discounts }) => {
   )
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   cart: state.cart,
   ads: state.ads,
   selectedCustomer: state.selectedCustomer,

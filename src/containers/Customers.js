@@ -5,7 +5,7 @@ import { changeCustomer } from '../actions'
 import CustomerList from '../components/CustomerList'
 import Customer from '../components/Customer'
 
-const Customers = ({ customers, selectedCustomer, onClickCustomer }) => (
+export const Customers = ({ customers, selectedCustomer, onClickCustomer }) => (
   <CustomerList>
     {customers.map(customer =>
       <Customer 
@@ -17,12 +17,12 @@ const Customers = ({ customers, selectedCustomer, onClickCustomer }) => (
   </CustomerList>
 )
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   customers: state.customers,
   selectedCustomer: state.selectedCustomer
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   onClickCustomer: id => {
     dispatch(changeCustomer(id))
   }
