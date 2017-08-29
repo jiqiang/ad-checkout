@@ -1,9 +1,11 @@
 import React from 'react'
 
+import './Customer.css'
+
 const Customer = ({ name, selected, onClick }) => {
-  const tick = selected ? 'V' : ''
+  const className = selected ? 'customer selected' : 'customer'
   return (
-    <div onClick={onClick}>{tick} {name}</div>
+    <div className={className} onClick={onClick}>{name}</div>
   )
 }  
 

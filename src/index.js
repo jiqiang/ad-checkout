@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
 import './index.css'
-import App from './App'
+import App from './components/App'
 import reducer from './reducers'
 import { fetchData } from './actions'
 import registerServiceWorker from './registerServiceWorker'

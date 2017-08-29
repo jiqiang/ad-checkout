@@ -1,0 +1,29 @@
+.col {
+  padding: 5px 0;
+}
+
+.col.nameCol, .col.priceCol {
+  width: 40%;
+}
+
+.nameCol {
+  text-align: left;
+}
+
+.qtyAdjustBtn {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.qtyAdjustBtn.remove {
+  float: left;
+}
+
+.qtyAdjustBtn.add {
+    float: right;
+  }
+
+.qty-adjust-btn:hover {
+  cursor: pointer;
+}

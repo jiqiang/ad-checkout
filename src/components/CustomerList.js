@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const CustomerList = ({ children }) => (
   <div>
-    <h1>Please select a customer:</h1>
+    <h3>Assume you are logged in as one of following customers:</h3>
     <div>{children}</div>
   </div>
 )

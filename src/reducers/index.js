@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const cart = (state = [], action) => {
+export const cart = (state = [], action) => {
   switch (action.type) {
     case 'UPDATE_CART':
       let idx = state.map(ad => ad.id).indexOf(action.id)
@@ -35,7 +35,7 @@ const cart = (state = [], action) => {
   }
 }
 
-const customers = (state = [], action) => {
+export const customers = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_CUSTOMERS':
       return [...action.customers]
@@ -44,7 +44,7 @@ const customers = (state = [], action) => {
   }
 }
 
-const ads = (state = [], action) => {
+export const ads = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_ADS':
       return [...action.ads]
@@ -60,7 +60,7 @@ const ads = (state = [], action) => {
   }
 }
 
-const discounts = (state = [], action) => {
+export const discounts = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_DISCOUNTS':
       return [...action.discounts]
@@ -69,7 +69,7 @@ const discounts = (state = [], action) => {
   }
 }
 
-const selectedCustomer = (state = 'default', action) => {
+export const selectedCustomer = (state = 'default', action) => {
   switch (action.type) {
     case 'CHANGE_CUSTOMER':
       return action.selectedCustomer

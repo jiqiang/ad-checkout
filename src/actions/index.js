@@ -32,13 +32,9 @@ export const receiveDiscounts = (discounts) => ({
   discounts
 })
 
-export const calculateTotal = () => ({
-  type: 'CALCULATE_TOTAL'
-})
-
 export const fetchData = () => {
   return (dispatch) => {
-    loadData().then(data => {
+    return loadData().then(data => {
       dispatch(receiveCustomers(data.customers))
       dispatch(receiveAds(data.ads.map(ad => 
         Object.assign(

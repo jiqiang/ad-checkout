@@ -1,0 +1,8 @@
+.customer.selected {
+  font-weight: bolder;
+}
+
+.customer:hover {
+  cursor: pointer;
+  font-weight: bolder;
+}

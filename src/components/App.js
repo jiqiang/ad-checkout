@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 
-import Customers from './containers/Customers'
-import Ads from './containers/Ads'
-import Cart from './containers/Cart'
+import Customers from '../containers/Customers'
+import Ads from '../containers/Ads'
+import Cart from '../containers/Cart'
+
+import './App.css'
 
 class App extends Component {
-
-  componentDidMount() {
-    
-  }
-  
   render() {
     return (
       <div className="App">
