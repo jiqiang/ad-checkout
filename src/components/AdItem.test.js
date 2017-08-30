@@ -8,7 +8,6 @@ describe('test AdItem', () => {
     const adItem = shallow(
       <AdItem name="aname" qty={1} price={20} />
     )
-
     const test = [
       { selector: 'td.nameCol', text: 'aname' },
       { selector: 'td.priceCol', text: '$20' }

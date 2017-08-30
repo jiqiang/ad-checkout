@@ -1,9 +1,7 @@
 import React from 'react'
-
 import './AdItem.css'
 
 const AdItem = ({ name, qty, price, onAdd, onRemove }) => {
-  
   return (
     <tr>
       <td className="col nameCol">{name}</td>

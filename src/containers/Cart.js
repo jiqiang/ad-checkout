@@ -21,7 +21,7 @@ export const calculateTotal = ({cart, ads, dcs}) => {
   total = total.toFixed(2)
   return total
 }
-
+  
 const Cart = ({ cart, ads, selectedCustomer, discounts }) => {
   
   let dcs = discounts.filter(dc => dc.customer === selectedCustomer)
