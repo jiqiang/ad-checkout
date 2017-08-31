@@ -26,11 +26,7 @@ export function cart(state = [], action) {
       // update existing cart item qty
       return [
         ...state.slice(0, idx),
-        Object.assign(
-          {},
-          state[idx],
-          {qty: state[idx].qty + action.qty}
-        ),
+        {...state[idx], qty: state[idx].qty + action.qty},
         ...state.slice(idx + 1)
       ]
     default:
@@ -55,7 +51,7 @@ export function ads(state = [], action) {
       const idx = state.map(ad => ad.id).indexOf(action.id)
       return [
         ...state.slice(0, idx),
-        Object.assign({}, state[idx], {qty: state[idx].qty + action.qty}),
+        {...state[idx], qty: state[idx].qty + action.qty},
         ...state.slice(idx + 1)
       ]
     default:

@@ -50,13 +50,11 @@ export function fetchData() {
   return (dispatch) => {
     return loadData().then(data => {
       dispatch(receiveCustomers(data.customers))
-      dispatch(receiveAds(data.ads.map(ad =>
-        Object.assign(
-          {},
-          ad,
-          {qty: 0}
+      dispatch(
+        receiveAds(
+          data.ads.map(ad =>({...ad, qty: 0}))
         )
-      )))
+      )
       dispatch(receiveDiscounts(data.discounts))
     })
   }
