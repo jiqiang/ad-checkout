@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { updateAds, updateCart } from '../actions'
 import AdItemList from '../components/AdItemList'
 import AdItem from '../components/AdItem'
@@ -20,6 +21,14 @@ export class Ads extends React.Component {
       </AdItemList>
     )
   }
+}
+
+Ads.propTypes = {
+  ads: PropTypes.array.isRequired,
+  onUpdateAdItemQty: PropTypes.func
+}
+Ads.defaultProps = {
+  ads: []
 }
 
 export function mapStateToProps(state) {

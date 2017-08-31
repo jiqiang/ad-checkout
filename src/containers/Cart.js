@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import PropTypes from 'prop-types'
 import Discount from '../utils/discount'
 import DiscountInfo from '../components/DiscountInfo'
 
@@ -61,19 +61,18 @@ export class Cart extends React.Component {
   }
 }
 
-// const Cart = ({ cart, ads, selectedCustomer, discounts }) => {
-
-//   let dcs = discounts.filter(dc => dc.customer === selectedCustomer)
-//   const total = calculateTotal({cart, ads, dcs})
-
-//   return (
-//     <div>
-//       <div>TOTAL: ${total}</div>
-//       <hr />
-//       <DiscountInfo discounts={dcs} />
-//     </div>
-//   )
-// }
+Cart.propTypes = {
+  cart: PropTypes.array.isRequired,
+  ads: PropTypes.array.isRequired,
+  selectedCustomer: PropTypes.string.isRequired,
+  discounts: PropTypes.array.isRequired
+}
+Cart.defaultProps = {
+  cart: [],
+  ads: [],
+  selectedCustomer: '',
+  discounts: []
+}
 
 export function mapStateToProps(state) {
   return {
