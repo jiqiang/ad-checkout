@@ -33,8 +33,8 @@ describe('app sync actions', () => {
 
   it('receiveCustomers should create  RECEIVE_CUSTOMERS action', () => {
     let customers = [
-      { id: 'customer_a_id', name: 'customer_a_name' },
-      { id: 'customer_b_id', name: 'customer_b_name' }
+      {id: 'customer_a_id', name: 'customer_a_name'},
+      {id: 'customer_b_id', name: 'customer_b_name'}
     ]
     expect(actions.receiveCustomers(customers)).toEqual({
       type: 'RECEIVE_CUSTOMERS',
@@ -44,8 +44,8 @@ describe('app sync actions', () => {
 
   it('receiveAds should create  RECEIVE_ADS action', () => {
     let ads = [
-      { id: 'ad_a_id', name: 'ad_a_name', price: 20.22 },
-      { id: 'ad_b_id', name: 'ad_b_name', price: 22.33 }
+      {id: 'ad_a_id', name: 'ad_a_name', price: 20.22},
+      {id: 'ad_b_id', name: 'ad_b_name', price: 22.33}
     ]
     expect(actions.receiveAds(ads)).toEqual({
       type: 'RECEIVE_ADS',
@@ -55,8 +55,20 @@ describe('app sync actions', () => {
 
   it('receiveDiscounts should create  RECEIVE_DISCOUNTS action', () => {
     let discounts = [
-      { customer: 'customer_a', ad: 'ad_a', rule: 'rule_a', params: [3], description: 'desc_a' },
-      { customer: 'customer_b', ad: 'ad_b', rule: 'rule_b', params: [4], description: 'desc_b' }
+      {
+        customer: 'customer_a',
+        ad: 'ad_a',
+        rule: 'rule_a',
+        params: [3],
+        description: 'desc_a'
+      },
+      {
+        customer: 'customer_b',
+        ad: 'ad_b',
+        rule: 'rule_b',
+        params: [4],
+        description: 'desc_b'
+      }
     ]
     expect(actions.receiveDiscounts(discounts)).toEqual({
       type: 'RECEIVE_DISCOUNTS',
@@ -73,16 +85,36 @@ describe('app async actions', () => {
   it('fetchData should dispatch correct actions', () => {
     const mockReply = {
       ads: [
-        { id: 'ad_a_id', name: 'ad_a_name', price: 20.22 },
-        { id: 'ad_b_id', name: 'ad_b_name', price: 22.33 }
+        {
+          id: 'ad_a_id',
+          name: 'ad_a_name',
+          price: 20.22
+        },
+        {
+          id: 'ad_b_id',
+          name: 'ad_b_name',
+          price: 22.33
+        }
       ],
       discounts: [
-        { customer: 'customer_a', ad: 'ad_a', rule: 'rule_a', params: [3], description: 'desc_a' },
-        { customer: 'customer_b', ad: 'ad_b', rule: 'rule_b', params: [4], description: 'desc_b' }
+        {
+          customer: 'customer_a',
+          ad: 'ad_a',
+          rule: 'rule_a',
+          params: [3],
+          description: 'desc_a'
+        },
+        {
+          customer: 'customer_b',
+          ad: 'ad_b',
+          rule: 'rule_b',
+          params: [4],
+          description: 'desc_b'
+        }
       ],
       customers: [
-        { id: 'customer_a_id', name: 'customer_a_name' },
-        { id: 'customer_b_id', name: 'customer_b_name' }
+        {id: 'customer_a_id', name: 'customer_a_name'},
+        {id: 'customer_b_id', name: 'customer_b_name'}
       ]
     }
 
@@ -92,12 +124,12 @@ describe('app async actions', () => {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
       })
-    
-    const expectedReceiveAdsActions = { 
+
+    const expectedReceiveAdsActions = {
       type: 'RECEIVE_ADS',
       ads: [
-        { id: 'ad_a_id', name: 'ad_a_name', price: 20.22, qty: 0 },
-        { id: 'ad_b_id', name: 'ad_b_name', price: 22.33, qty: 0 }
+        {id: 'ad_a_id', name: 'ad_a_name', price: 20.22, qty: 0},
+        {id: 'ad_b_id', name: 'ad_b_name', price: 22.33, qty: 0}
       ]
     }
 
@@ -108,8 +140,14 @@ describe('app async actions', () => {
     })
 
     return store.dispatch(actions.fetchData()).then(() => {
-      expect(store.getActions()).toContainEqual({ type: 'RECEIVE_CUSTOMERS', customers: mockReply.customers })
-      expect(store.getActions()).toContainEqual({ type: 'RECEIVE_DISCOUNTS', discounts: mockReply.discounts })
+      expect(store.getActions()).toContainEqual({
+        type: 'RECEIVE_CUSTOMERS',
+        customers: mockReply.customers
+      })
+      expect(store.getActions()).toContainEqual({
+        type: 'RECEIVE_DISCOUNTS',
+        discounts: mockReply.discounts
+      })
       expect(store.getActions()).toContainEqual(expectedReceiveAdsActions)
     })
   })

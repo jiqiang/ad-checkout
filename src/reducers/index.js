@@ -1,8 +1,9 @@
 import { combineReducers } from 'redux'
+import * as actionTypes from '../actions/actionTypes'
 
-export const cart = (state = [], action) => {
+export function cart(state = [], action) {
   switch (action.type) {
-    case 'UPDATE_CART':
+    case actionTypes.UPDATE_CART:
       let idx = state.map(ad => ad.id).indexOf(action.id)
 
       // create new cart item if it doesn't exist
@@ -26,8 +27,8 @@ export const cart = (state = [], action) => {
       return [
         ...state.slice(0, idx),
         Object.assign(
-          {}, 
-          state[idx], 
+          {},
+          state[idx],
           {qty: state[idx].qty + action.qty}
         ),
         ...state.slice(idx + 1)
@@ -37,20 +38,20 @@ export const cart = (state = [], action) => {
   }
 }
 
-export const customers = (state = [], action) => {
+export function customers(state = [], action) {
   switch (action.type) {
-    case 'RECEIVE_CUSTOMERS':
+    case actionTypes.RECEIVE_CUSTOMERS:
       return [...action.customers]
     default:
       return state
   }
 }
 
-export const ads = (state = [], action) => {
+export function ads(state = [], action) {
   switch (action.type) {
-    case 'RECEIVE_ADS':
+    case actionTypes.RECEIVE_ADS:
       return [...action.ads]
-    case 'UPDATE_ADS':
+    case actionTypes.UPDATE_ADS:
       const idx = state.map(ad => ad.id).indexOf(action.id)
       return [
         ...state.slice(0, idx),
@@ -62,18 +63,18 @@ export const ads = (state = [], action) => {
   }
 }
 
-export const discounts = (state = [], action) => {
+export function discounts(state = [], action) {
   switch (action.type) {
-    case 'RECEIVE_DISCOUNTS':
+    case actionTypes.RECEIVE_DISCOUNTS:
       return [...action.discounts]
     default:
       return state
   }
 }
 
-export const selectedCustomer = (state = 'default', action) => {
+export function selectedCustomer(state = 'default', action) {
   switch (action.type) {
-    case 'CHANGE_CUSTOMER':
+    case actionTypes.CHANGE_CUSTOMER:
       return action.selectedCustomer
     default:
       return state

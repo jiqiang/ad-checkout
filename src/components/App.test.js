@@ -8,7 +8,6 @@ import Cart from '../containers/Cart'
 describe('test App', () => {
   it('App should render properly', () =>{
     const app = shallow(<App />)
-
     const test = [
       {
         customers: <Customers />,

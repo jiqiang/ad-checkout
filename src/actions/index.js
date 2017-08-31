@@ -1,46 +1,59 @@
 import { loadData } from '../utils/api'
+import * as actionTypes from './actionTypes'
 
 // all action creators are self-explained
-export const changeCustomer = (selectedCustomer) => ({
-  type: 'CHANGE_CUSTOMER',
-  selectedCustomer
-})
+export function changeCustomer(selectedCustomer) {
+  return {
+    type: actionTypes.CHANGE_CUSTOMER,
+    selectedCustomer
+  }
+}
 
-export const updateCart = (id, qty) => ({
-  type: 'UPDATE_CART',
-  id: id,
-  qty: qty
-})
+export function updateCart(id, qty) {
+  return {
+    type: actionTypes.UPDATE_CART,
+    id,
+    qty
+  }
+}
 
-export const updateAds = (id, qty) => ({
-  type: 'UPDATE_ADS',
-  id: id,
-  qty: qty
-})
+export function updateAds(id, qty) {
+  return {
+    type: actionTypes.UPDATE_ADS,
+    id,
+    qty
+  }
+}
 
-export const receiveCustomers = (customers) => ({
-  type: 'RECEIVE_CUSTOMERS',
-  customers
-})
+export function receiveCustomers(customers) {
+  return {
+    type: actionTypes.RECEIVE_CUSTOMERS,
+    customers
+  }
+}
 
-export const receiveAds = (ads) => ({
-  type: 'RECEIVE_ADS',
-  ads
-})
+export function receiveAds(ads) {
+  return {
+    type: actionTypes.RECEIVE_ADS,
+    ads
+  }
+}
 
-export const receiveDiscounts = (discounts) => ({
-  type: 'RECEIVE_DISCOUNTS',
-  discounts
-})
+export function receiveDiscounts(discounts) {
+  return {
+    type: actionTypes.RECEIVE_DISCOUNTS,
+    discounts
+  }
+}
 
-export const fetchData = () => {
+export function fetchData() {
   return (dispatch) => {
     return loadData().then(data => {
       dispatch(receiveCustomers(data.customers))
-      dispatch(receiveAds(data.ads.map(ad => 
+      dispatch(receiveAds(data.ads.map(ad =>
         Object.assign(
-          {}, 
-          ad, 
+          {},
+          ad,
           {qty: 0}
         )
       )))

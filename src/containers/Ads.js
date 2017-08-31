@@ -1,34 +1,41 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { updateAds, updateCart } from '../actions'
 import AdItemList from '../components/AdItemList'
 import AdItem from '../components/AdItem'
 
-const Ads = ({ ads, onUpdateAdItemQty }) => (
-  <AdItemList>
-    {ads.map(ad =>
-      <AdItem 
-        key={ad.id} 
-        name={ad.name}
-        qty={ad.qty}
-        price={ad.price}
-        onAdd={() => onUpdateAdItemQty(ad.id, 1)}
-        onRemove={() => onUpdateAdItemQty(ad.id, -1)} />
-    )}
-  </AdItemList>
-)
-
-export const mapStateToProps = state => ({
-  ads: state.ads
-})
-
-export const mapDispatchToProps = dispatch => ({
-  onUpdateAdItemQty: (id, qty) => {
-    dispatch(updateAds(id, qty))
-    dispatch(updateCart(id, qty))
+export class Ads extends React.Component {
+  render() {
+    return (
+      <AdItemList>
+        {this.props.ads.map(ad =>
+          <AdItem
+            key={ad.id}
+            name={ad.name}
+            qty={ad.qty}
+            price={ad.price}
+            onAdd={() => this.props.onUpdateAdItemQty(ad.id, 1)}
+            onRemove={() => this.props.onUpdateAdItemQty(ad.id, -1)} />
+        )}
+      </AdItemList>
+    )
   }
-})
+}
+
+export function mapStateToProps(state) {
+  return {
+    ads: state.ads
+  }
+}
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    onUpdateAdItemQty: (id, qty) => {
+      dispatch(updateAds(id, qty))
+      dispatch(updateCart(id, qty))
+    }
+  }
+}
 
 export default connect(
   mapStateToProps,

@@ -1,15 +1,13 @@
-// Independent discount class which contains 
-// static functions calculating discounts. You can add 
+// Independent discount class which contains
+// static functions calculating discounts. You can add
 // special discount function here
 
 export default class Discount {
-  
   static pay_less_quantities(ad_id, qty, price, triggerQty, discountedQty) {
     // not eligible for this discount.
     if (qty < triggerQty) {
       return price * qty
     }
-
     let total = 0.0;
     let n = qty % triggerQty;
     if (n > 0) {
@@ -17,7 +15,6 @@ export default class Discount {
     } else {
       total = price * (qty / triggerQty * discountedQty)
     }
-
     return total;
   }
 
@@ -30,7 +27,6 @@ export default class Discount {
     if (qty < triggerQty) {
       return price * qty
     }
-
     return discountedPrice * qty;
   }
 }
