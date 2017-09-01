@@ -6,7 +6,7 @@ function DiscountInfo({ discounts }) {
   let discountInfo = (<li>N/A</li>)
   if (discounts.length > 0) {
     discountInfo = discounts.map(dc => {
-      const key = dc.customer + '-' + dc.ad
+      const key = `${dc.customer}-${dc.ad}`
       return (<li key={key}>{dc.description}</li>)
     })
   }
